@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    "use strict";
+    /*
+    Почему код даёт именно такие результаты?
+    */
+    var a = 1, b = 1, c, d;
+    c = ++a;        //Префиксный оператор, перед присвоением увеличиваем а на 1
+    alert(c);       // 2
+    d = b++;        //Постфиксный оператор, d присваивается изначальное значение 1, после этого b увелич-ся на 1 
+    alert(d);       // 1
+    c = (2 + ++a);  //Префиксный оп-р сперва увеличивает а на 1 (теперь а=3), поэтому с = 5
+    alert(c);       // 5
+    d = (2 + b++);  // Постфиксный оператор, сперва складываем 2 + b(2), затем увеличиваем b на 1
+    alert(d);      // 4
+    alert(a);      // 3
+    alert(b);      // 3
+    /*Чему будет равен x в примере ниже?*/
+    var a = 2;
+    var x = 1 + (a *= 2); // 5, так как сперва умножаем изначальное значение а на 2
+    /*
+    Объявить две целочисленные переменные a и b и задать им произвольные начальные значения. 
+    Затем написать скрипт, который работает по следующему принципу:
+    если a и b положительные, вывести их разность;
+    если а и b отрицательные, вывести их произведение;
+    если а и b разных знаков, вывести их сумму; ноль можно считать положительным числом. 
+    */
+    var a = Math.floor(Math.random() * 100);
+    var b = Math.floor(Math.random() * 100);
+    console.log(a, b)
+    if (a > 0 && b > 0) {
+        alert(a - b);
+    } else if (a <= 0 && b <= 0) {
+        alert(a * b);
+    } else {
+        alert(a + b);
+    }
+    /*
+    4. Присвоить переменной а значение в промежутке [0..15]. 
+    С помощью оператора switch организовать вывод чисел от a до 15.
+    */
+    function getRandomNum(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    var a = getRandomNum(0, 15);
+    switch (a) {
+        case 0:
+            alert(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+            break;
+        case 1:
+            alert(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+            break;
+        case 2:
+            alert(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+            break;
+        case 3:
+            alert(3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+            break;
+        case 4:
+            alert(4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+            break;
+        case 5:
+            alert(5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+            break;
+        case 6:
+            alert(6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+            break;
+        case 7:
+            alert(7, 8, 9, 10, 11, 12, 13, 14, 15);
+            break;
+        case 8:
+            alert(8, 9, 10, 11, 12, 13, 14, 15);
+            break;
+        case 9:
+            alert(9, 10, 11, 12, 13, 14, 15);
+            break;
+        case 10:
+            alert(10, 11, 12, 13, 14, 15);
+            break;
+        case 11:
+            alert(11, 12, 13, 14, 15);
+            break;
+        case 12:
+            alert(12, 13, 14, 15);
+            break;
+        case 13:
+            alert(13, 14, 15);
+            break;
+        case 14:
+            alert(14, 15);
+            break;
+        case 15:
+            alert(15);
+            break;
+        default:
+            alert('Число не входит в нужный диапазон');
+    }
+    /*
+    5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. 
+    Обязательно использовать оператор return.    
+    */
+    function getSum(a, b) {
+        return a + b;
+    }
+
+    function getSub(a, b) {
+        return a - b;
+    }
+
+    function getMult(a, b) {
+        return a * b;
+    }
+
+    function getDiv(a, b) {
+        return a / b;
+    }
+
+    console.log(getSum(2, 2));
+    console.log(getSub(10, 5));
+    console.log(getMult(6, 6));
+    console.log(getDiv(49, 7));
+
+    /*
+    6. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), 
+    где arg1, arg2 – значения аргументов, operation – строка с названием операции. 
+    В зависимости от переданного значения операции выполнить одну из арифметических операций 
+    (использовать функции из пункта 3) и вернуть полученное значение (использовать switch). 
+    */
+    function mathOperation(arg1, arg2, operation) {
+        switch (operation) {
+            case 'addition':
+                console.log(arg1 + arg2);
+                break;
+            case 'subtraction':
+                console.log(arg1 - arg2);
+                break;
+            case 'multiplication':
+                console.log(arg1 * arg2);
+                break;
+            case 'division':
+                console.log(arg1 / arg2);
+                break;
+        }
+    }
+    mathOperation(2, 2, 'multiplication');
+    mathOperation('q', 2, 'addition');
+    /*
+    7. *Сравнить null и 0. Попробуйте объяснить результат. 
+    */
+    alert(null > 0);  // false, nill приводится к 0 и не становится больше нуля
+    alert(null == 0); // false, при == оба значения ни к чему не приводятся, сравнение в изначальном виде 
+    alert(null >= 0); // true, при использовании математических сравнений, null преобразуется к 0, поэтомы True
+    /*
+    *С помощью рекурсии организовать функцию возведения числа в степень. 
+    Формат: function power(val, pow), где val – заданное число, pow – степень.
+    */
+    function power(val, pow) {
+        if (pow == 1) {
+            return val;
+        } else {
+            return val * power(val, pow - 1);
+        }
+    }
+
+    alert(power(5, 5));
+
+</script>
+
+</html>
